@@ -197,10 +197,6 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ## Acknowledgments
 
 - Google Gemini API for AI capabilities
@@ -208,5 +204,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - React and Vite communities
 
 ## Support
-
-For issues and feature requests, please use the [GitHub Issues](https://github.com/karthiknagpuri/defect-spotter/issues) page.
+Reach out to me : reddygopalkrishn06@gmail.com
