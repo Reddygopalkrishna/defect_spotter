@@ -1,0 +1,236 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Mono', 'Droid Sans Mono', 'Source Code Pro', monospace;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #09090b;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #09090b;
+}
+
+#root {
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Terminal-style scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(24, 24, 27, 0.5);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(63, 63, 70, 0.8);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(82, 82, 91, 0.9);
+}
+
+/* Custom animations */
+@keyframes pulse-once {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.animate-pulse-once {
+  animation: pulse-once 0.5s ease-out;
+}
+
+@keyframes scan-line {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+.animate-scan-line {
+  animation: scan-line 3s linear infinite;
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 5px currentColor;
+  }
+  50% {
+    box-shadow: 0 0 20px currentColor, 0 0 30px currentColor;
+  }
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+/* Terminal text effects */
+.terminal-text {
+  text-shadow: 0 0 10px currentColor;
+}
+
+/* Grid pattern background */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Noise texture overlay */
+.bg-noise {
+  position: relative;
+}
+
+.bg-noise::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.02;
+  pointer-events: none;
+}
+
+/* Selection color */
+::selection {
+  background: rgba(34, 211, 238, 0.3);
+  color: #fff;
+}
+
+/* Focus styles */
+button:focus-visible {
+  outline: 2px solid rgba(34, 211, 238, 0.5);
+  outline-offset: 2px;
+}
+
+/* Utility classes */
+.scrollbar-thin {
+  scrollbar-width: thin;
+}
+
+.scrollbar-track-zinc-900::-webkit-scrollbar-track {
+  background: rgb(24, 24, 27);
+}
+
+.scrollbar-thumb-zinc-700::-webkit-scrollbar-thumb {
+  background: rgb(63, 63, 70);
+}
+
+/* Glow effects */
+.glow-emerald {
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+}
+
+.glow-red {
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.3);
+}
+
+.glow-yellow {
+  box-shadow: 0 0 20px rgba(250, 204, 21, 0.3);
+}
+
+.glow-cyan {
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.3);
+}
+
+/* NanoBanana highlight effect */
+.nano-highlight {
+  position: relative;
+}
+
+.nano-highlight::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border: 2px solid;
+  border-image: linear-gradient(135deg, #facc15, #f59e0b, #ef4444) 1;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Glass morphism */
+.glass {
+  background: rgba(24, 24, 27, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Border glow on detection */
+@keyframes detection-pulse {
+  0%, 100% {
+    border-color: rgba(250, 204, 21, 0.3);
+    box-shadow: 0 0 5px rgba(250, 204, 21, 0.1);
+  }
+  50% {
+    border-color: rgba(250, 204, 21, 0.8);
+    box-shadow: 0 0 20px rgba(250, 204, 21, 0.4);
+  }
+}
+
+.detection-border {
+  animation: detection-pulse 1s ease-in-out infinite;
+}
+
+/* Status indicator animations */
+@keyframes status-ping {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.status-ping {
+  animation: status-ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .grid-cols-12 {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* Print styles for report */
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+}
