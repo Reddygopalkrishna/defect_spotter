@@ -58,7 +58,7 @@ DefectSpotter is a real-time visual inspection system that uses Google's Gemini 
 
 ```bash
 # Clone the repository
-git clone https://github.com/karthiknagpuri/defect-spotter.git
+git clone https://github.com/Reddygopalkrishna/defect_spotter.git
 cd defect-spotter
 
 # Install dependencies
